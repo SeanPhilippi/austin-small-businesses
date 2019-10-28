@@ -16,20 +16,31 @@ const useStyles = makeStyles(theme => ({
   title: {
 
   },
+  status: {
+    'background-color': 'lightgrey',
+    'color': 'grey',
+    'text-align': 'left',
+    'padding': '.3rem 1.5rem'
+  }
 }));
 
-const Nav = () => {
+const Nav = ({ username }) => {
   const classes = useStyles();
   return (
-    <Appbar position="static">
-      <Toolbar className={ classes.toolbar }>
-        <Typography variant="h6" className={classes.title}>
-          Austin Small Businesses
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </Appbar>
+    <>
+      <Appbar position="static">
+        <Toolbar className={ classes.toolbar }>
+          <Typography variant="h6" className={ classes.title }>
+            Austin Small Businesses
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </Appbar>
+      <div className={ classes.status }>
+        Logged in as: { username }
+      </div>
+    </>
   );
-}
+};
 
 export default Nav;
