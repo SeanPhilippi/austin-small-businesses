@@ -11,16 +11,36 @@ class Nav extends PureComponent {
     if (isAuthenticated) {
       return (
         <div className="links">
-          <Button color="inherit">Listings</Button>
-          <Button color="inherit">Add</Button>
-          <Button color="inherit">Log Out</Button>
+          <Link to='/listings'>
+            <Button color="inherit">
+              Listings
+            </Button>
+          </Link>
+          <Link to='/add'>
+            <Button color="inherit">
+              Add
+            </Button>
+          </Link>
+          <Link to='logout'>
+            <Button color="inherit">
+              Log Out
+            </Button>
+          </Link>
         </div>
       )
     } else {
       return (
         <div className="links">
-          <Button color="inherit">Listings</Button>
-          <Button color="inherit">Login</Button>
+          <Link to='/listings'>
+            <Button color="inherit">
+              Listings
+            </Button>
+          </Link>
+          <Link to='/login'>
+            <Button color="inherit">
+              Login
+            </Button>
+          </Link>
         </div>
       )
     }
