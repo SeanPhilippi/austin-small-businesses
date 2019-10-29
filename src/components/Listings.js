@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { TableRow, Table, TableHead, TableCell, TableBody, Paper } from '@material-ui/core';
+import { TableRow, Table, TableHead, TableCell, TableBody } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Listing = ({ listings }) => {
+const Listings = ({ listings }) => {
   const classes = useStyles();
   return (
     <Table className={ classes.table }>
@@ -41,4 +41,4 @@ const Listing = ({ listings }) => {
   );
 };
 
-export default Listing;
+export default Listings;

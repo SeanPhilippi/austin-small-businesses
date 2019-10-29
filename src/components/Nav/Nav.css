@@ -1,0 +1,23 @@
+.root {
+  flex-grow: 1
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+
+}
+
+.title {
+
+}
+
+.status {
+  background-color: lightgrey;
+  color: grey;
+  text-align: left;
+  padding: .3rem 1.5rem;
+}
