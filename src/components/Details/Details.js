@@ -18,17 +18,17 @@ const Details = ({
 }) => {
   return (
     <div className="details-container">
-      <div>
-        <h1>
+      <div className="w-50 text-left">
+        <h2>
           { name }
-        </h1>
+        </h2>
         <p>
           <b>{ address }</b>
         </p>
         <p>
           <b>{ hours }</b>
         </p>
-        <p className="description">
+        <p>
           { description }
         </p>
       </div>
