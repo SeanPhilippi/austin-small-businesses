@@ -2,7 +2,10 @@ import { TYPES } from './actions';
 
 const initialState = {
   isAuthenticated: true,
-  username: '',
+  user: {
+    username: '',
+    password: ''
+  },
   errors: {
     login: {},
     register: {}

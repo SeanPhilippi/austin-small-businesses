@@ -37,25 +37,30 @@ class Nav extends PureComponent {
           <Link className="text-white nav_link" to='/login'>
             Login
           </Link>
+          <Link className="text-white nav_link" to='/register'>
+            Register
+          </Link>
         </div>
       )
     }
   };
 
   render() {
-    const { username } = this.props;
+    const { user: { username }, isAuthenticated } = this.props;
     return (
       <>
         <Appbar position="static">
           <Toolbar className="toolbar">
             <Typography variant="h6" className="title">
-              <Link className="text-white nav_link" to="/">Austin Small Businesses</Link>
+              <Link className="text-white nav_link" to="/">
+                Austin Small Businesses
+              </Link>
             </Typography>
             { this.whatToShow() }
           </Toolbar>
         </Appbar>
         <div className="status">
-          Logged in as: { username }
+          { isAuthenticated ? `Logged in as: ${ username }`: 'Please log in or register.' }
         </div>
       </>
     );
@@ -64,7 +69,7 @@ class Nav extends PureComponent {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.isAuthenticated,
-  username: state.username
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
