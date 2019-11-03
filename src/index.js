@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import store from './redux/store';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <BrowserRouter>
