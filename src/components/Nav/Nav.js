@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Toolbar, Typography, Button } from '@material-ui/core';
+import { Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Appbar from '@material-ui/core/Appbar';
@@ -11,35 +11,25 @@ class Nav extends PureComponent {
     if (isAuthenticated) {
       return (
         <div className="links">
-          <Link to='/listings'>
-            <Button color="inherit">
-              Listings
-            </Button>
+          <Link className="text-white nav_link" to='/listings'>
+            Listings
           </Link>
-          <Link to='/add-listing'>
-            <Button color="inherit">
-              Add
-            </Button>
+          <Link className="text-white nav_link" to='/add-listing'>
+            Add
           </Link>
-          <Link to='logout'>
-            <Button color="inherit">
-              Log Out
-            </Button>
+          <Link className="text-white nav_link" to='logout'>
+            Log Out
           </Link>
         </div>
       )
     } else {
       return (
         <div className="links">
-          <Link to='/listings'>
-            <Button color="inherit">
-              Listings
-            </Button>
+          <Link className="text-white nav_link" to='/listings'>
+            Listings
           </Link>
-          <Link to='/login'>
-            <Button color="inherit">
-              Login
-            </Button>
+          <Link className="text-white nav_link" to='/login'>
+            Login
           </Link>
         </div>
       )
@@ -53,7 +43,7 @@ class Nav extends PureComponent {
         <Appbar position="static">
           <Toolbar className="toolbar">
             <Typography variant="h6" className="title">
-              Austin Small Businesses
+              <Link className="text-white nav_link" to="/">Austin Small Businesses</Link>
             </Typography>
             { this.whatToShow() }
           </Toolbar>

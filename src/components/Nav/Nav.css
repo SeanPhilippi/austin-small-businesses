@@ -11,6 +11,20 @@
 
 }
 
+.nav_link {
+  text-decoration: none !important;
+}
+
+.links > .nav_link {
+  margin: 0 1rem;
+}
+
+.nav_link:hover {
+  -webkit-stroke-color: #FFFFFF;
+  -webkit-fill-color: #FFFFFF;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.75);
+}
+
 .title {
 
 }
