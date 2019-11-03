@@ -1,11 +1,10 @@
 import React from 'react';
-// import './Marker.css';
+import markerIcon from '../images/icon-marker.png';
 
 const Marker = () => {
   return (
-    <div className="add-listing-container">
-      **
-    </div>
+    <img alt="marker" src={ markerIcon }>
+    </img>
   );
 };
 
