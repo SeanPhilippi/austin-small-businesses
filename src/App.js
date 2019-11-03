@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Nav from './components/Nav/Nav';
 import Home from './components/Home';
 import Listings from './components/Listings';
+import AddListing from './components/AddListing/AddListing';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import {
@@ -25,6 +26,7 @@ class App extends PureComponent {
         <Switch>
           <Route exact path='/' component={ Home } />
           <Route exact path='/listings' component={ Listings } />
+          <Route exact path='/add-listing' component={ AddListing } />
           <Route exact path='/login' component={ LoginPage }/>
           <Route exact path='/register' component={ RegisterPage }/>
           <Route />

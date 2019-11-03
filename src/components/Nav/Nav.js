@@ -16,7 +16,7 @@ class Nav extends PureComponent {
               Listings
             </Button>
           </Link>
-          <Link to='/add'>
+          <Link to='/add-listing'>
             <Button color="inherit">
               Add
             </Button>
