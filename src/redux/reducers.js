@@ -11,6 +11,10 @@ export default (state = initialState, { type, payload }) => {
       ...state,
       user: payload
     };
+    case TYPES.LOG_OUT_USER: return {
+      ...state,
+      isAuthenticated: false
+    }
     default: return state;
   }
 };

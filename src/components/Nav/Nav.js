@@ -3,11 +3,13 @@ import { Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Appbar from '@material-ui/core/Appbar';
+import { logOutUser } from '../../redux/actions';
+
 import './Nav.css';
 
 class Nav extends PureComponent {
   whatToShow = () => {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, logOutUser } = this.props;
     if (isAuthenticated) {
       return (
         <div className="links">
@@ -17,7 +19,11 @@ class Nav extends PureComponent {
           <Link className="text-white nav_link" to='/add-listing'>
             Add
           </Link>
-          <Link className="text-white nav_link" to='logout'>
+          <Link
+            onClick={ logOutUser }
+            className="text-white nav_link"
+            to='logout'
+          >
             Log Out
           </Link>
         </div>
@@ -61,4 +67,8 @@ const mapStateToProps = state => ({
   username: state.username
 });
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = dispatch => ({
+  logOutUser: () => dispatch(logOutUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
