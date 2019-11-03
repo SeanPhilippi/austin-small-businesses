@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../Map/Map';
-import { TextField } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import './AddListing.css';
 
 const AddListing = () => {
@@ -31,6 +31,7 @@ const AddListing = () => {
           label="Description"
           margin="normal"
         />
+        <Button type="submit" label="Add Listing" />
       </form>
       <Map />
     </div>

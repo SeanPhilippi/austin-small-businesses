@@ -2,19 +2,20 @@ import { TYPES } from './actions';
 
 const initialState = {
   isAuthenticated: true,
-  username: ''
+  username: '',
+  errors: {
+    login: {},
+    register: {}
+  }
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case TYPES.SET_CURRENT_USER: return {
       ...state,
-      user: payload
+      isAuthenticated: payload.bool,
+      user: payload.user
     };
-    case TYPES.LOG_OUT_USER: return {
-      ...state,
-      isAuthenticated: false
-    }
     default: return state;
-  }
+  };
 };
