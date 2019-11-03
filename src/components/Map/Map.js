@@ -13,13 +13,12 @@ class Map extends PureComponent {
   };
 
   render() {
-    console.log(process.env.REACT_APP_MAPS_API_KEY)
     return (
       <div className="map">
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={ this.props.center }
+          defaultZoom={ this.props.zoom }
         >
           <Marker
             lat={ 59.955413 }

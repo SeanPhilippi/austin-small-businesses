@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import { TableRow, Table, TableHead, TableCell, TableBody } from '@material-ui/core';
 const data = require('../listings.json');
 
@@ -29,11 +30,20 @@ const Listings = props => {
           data.map(listing => {
             return (
               <TableRow>
-                <TableCell align="left">{ listing.name }</TableCell>
+                <TableCell align="left">
+                  <Link
+                    to={{
+                      pathname: `/listing/${ listing.name }`,
+                      state: { listing }
+                    }}
+                  >
+                    { listing.name }
+                  </Link>
+                </TableCell>
                 <TableCell align="left">{ listing.description }</TableCell>
                 <TableCell align="left">{ listing.hours }</TableCell>
                 <TableCell align="left">{ listing.address }</TableCell>
-                <TableCell align="left">{ listing.delete }</TableCell>
+                <TableCell align="left">x</TableCell>
               </TableRow>
             )
           })
