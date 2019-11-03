@@ -1,7 +1,6 @@
 import React from 'react';
-import Marker from '../Marker';
+import Map from '../Map/Map';
 import { TextField } from '@material-ui/core';
-import GoogleMapReact from 'google-map-react';
 import './AddListing.css';
 
 const AddListing = () => {
@@ -33,11 +32,7 @@ const AddListing = () => {
           margin="normal"
         />
       </form>
-      <div className="map">
-        <GoogleMapReact>
-          <Marker/>
-        </GoogleMapReact>
-      </div>
+      <Map />
     </div>
   );
 };

@@ -6,16 +6,9 @@
 }
 
 .listing-inputs {
-  margin: 0 2rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   width: 50%;
   margin: auto;
-}
-
-.map {
-  margin: 0 2rem;
-  width: 50%;
-  height: 500px;
-  border: solid black 1px;
 }
