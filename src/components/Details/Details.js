@@ -32,7 +32,7 @@ const Details = ({
           { description }
         </p>
       </div>
-      <Map />
+      <Map center={{ lat, lng }} />
     </div>
   );
 };

@@ -43,7 +43,7 @@ const Listings = props => {
                 <TableCell align="left">{ listing.description }</TableCell>
                 <TableCell align="left">{ listing.hours }</TableCell>
                 <TableCell align="left">{ listing.address }</TableCell>
-                <TableCell align="left">x</TableCell>
+                <TableCell align="left">✕</TableCell>
               </TableRow>
             )
           })
