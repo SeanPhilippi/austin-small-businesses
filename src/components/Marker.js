@@ -3,7 +3,10 @@ import markerIcon from '../images/icon-marker.png';
 
 const Marker = () => {
   return (
-    <img alt="marker" src={ markerIcon }>
+    <img
+      alt="marker"
+      src={ markerIcon }
+    >
     </img>
   );
 };

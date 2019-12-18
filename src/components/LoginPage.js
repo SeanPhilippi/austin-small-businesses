@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { TextField, Button } from '@material-ui/core';
 import { setCurrentUser } from '../redux/actions';
+
+const cookie = require('cookie');
 
 // import './LoginPage.css';
 
@@ -16,11 +19,13 @@ class LoginPage extends PureComponent {
   };
 
   handleLogin = () => {
+    const { setCurrentUser, history } = this.props;
     const user = {
       username: this.state.username,
       password: this.state.password
     };
-    this.props.setCurrentUser(user, true);
+    setCurrentUser(user, true);
+    history.push('/listings');
   };
 
   render() {
@@ -66,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: (user, bool) => dispatch(setCurrentUser(user, bool)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));

@@ -22,7 +22,7 @@ class Nav extends PureComponent {
           <Link
             onClick={ () => setCurrentUser({}, false) }
             className="text-white nav_link"
-            to='logout'
+            to='/login'
           >
             Log Out
           </Link>
