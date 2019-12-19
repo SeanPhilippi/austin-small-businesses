@@ -1,9 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { TableRow, Table, TableHead, TableCell, TableBody } from '@material-ui/core';
-const data = require('../listings.json');
-
+import { deleteListing } from '../redux/actions';
 
 const useStyles = makeStyles({
   table: {
@@ -12,7 +12,13 @@ const useStyles = makeStyles({
   }
 });
 
-const Listings = props => {
+const Listings = ({
+  listings,
+  deleteListing
+}) => {
+  const handleDelete = () => {
+    deleteListing();
+  };
   const classes = useStyles();
   return (
     <Table className={ classes.table }>
@@ -27,7 +33,7 @@ const Listings = props => {
       </TableHead>
       <TableBody className="">
         {
-          data.map(listing => {
+          listings.map((listing, idx) => {
             return (
               <TableRow>
                 <TableCell align="left">
@@ -43,7 +49,12 @@ const Listings = props => {
                 <TableCell align="left">{ listing.description }</TableCell>
                 <TableCell align="left">{ listing.hours }</TableCell>
                 <TableCell align="left">{ listing.address }</TableCell>
-                <TableCell align="left">✕</TableCell>
+                <TableCell
+                  align="left"
+                  onClick={ () => deleteListing(idx) }
+                >
+                  ✕
+                </TableCell>
               </TableRow>
             )
           })
@@ -53,4 +64,12 @@ const Listings = props => {
   );
 };
 
-export default Listings;
+const mapStateToProps = state => ({
+  listings: state.listings
+});
+
+const mapDispatchToProps = dispatch => ({
+  deleteListing: idx => dispatch(deleteListing(idx))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Listings);

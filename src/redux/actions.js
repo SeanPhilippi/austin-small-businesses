@@ -1,5 +1,6 @@
 export const TYPES = {
   SET_CURRENT_USER: 'SET_CURRENT_USER',
+  DELETE_LISTING: 'DELETE_LISTING',
 };
 
 export const setCurrentUser = (user, bool) => ({
@@ -8,4 +9,9 @@ export const setCurrentUser = (user, bool) => ({
     user, // user object
     bool
   }
+});
+
+export const deleteListing = idx => ({
+  type: TYPES.DELETE_LISTING,
+  payload: idx
 });
