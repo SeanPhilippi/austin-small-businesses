@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { TableRow, Table, TableHead, TableCell, TableBody } from '@material-ui/core';
-import { deleteListing } from '../redux/actions';
+import { deleteListing } from '../../redux/actions';
+
+import './Listings.css';
 
 const useStyles = makeStyles({
   table: {
@@ -50,7 +52,8 @@ const Listings = ({
                 <TableCell align="left">{ listing.hours }</TableCell>
                 <TableCell align="left">{ listing.address }</TableCell>
                 <TableCell
-                  align="left"
+                  className="delete-btn"
+                  align="center"
                   onClick={ () => deleteListing(idx) }
                 >
                   ✕

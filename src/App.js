@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Nav from './components/Nav/Nav';
 import Home from './components/Home';
-import Listings from './components/Listings';
+import Listings from './components/Listings/Listings';
 import AddListing from './components/AddListing/AddListing';
 import Details from './components/Details/Details';
 import LoginPage from './components/LoginPage';
