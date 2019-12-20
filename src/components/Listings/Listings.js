@@ -35,8 +35,7 @@ const Listings = ({
       </TableHead>
       <TableBody className="">
         {
-          listings.map((listing, idx) => {
-            return (
+          listings.map((listing, idx) => (
               <TableRow>
                 <TableCell align="left">
                   <Link
@@ -60,7 +59,7 @@ const Listings = ({
                 </TableCell>
               </TableRow>
             )
-          })
+          )
         }
       </TableBody>
     </Table>
