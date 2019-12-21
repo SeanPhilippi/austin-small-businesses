@@ -18,9 +18,9 @@ const Listings = ({
   listings,
   deleteListing
 }) => {
-  const handleDelete = () => {
-    deleteListing();
-  };
+  // const handleDelete = () => {
+  //   deleteListing();
+  // };
   const classes = useStyles();
   return (
     <Table className={ classes.table }>
