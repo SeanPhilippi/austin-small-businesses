@@ -5,10 +5,12 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import state from './state';
 
 // Redux store to be used in Provider component
 export default createStore(
   rootReducer,
+  state,
   compose(
     applyMiddleware(thunk),
     (

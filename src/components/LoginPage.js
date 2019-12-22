@@ -2,15 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { TextField, Button } from '@material-ui/core';
-import { setCurrentUser } from '../redux/actions';
+import { setCurrentUser, setAuthenticated } from '../redux/actions';
 import { useForm } from '../hooks/useForm';
 
-const cookie = require('cookie');
+const cookie = require('cookie'); // ! use this
 
 // import './LoginPage.css';
 
 const LoginPage = ({
   setCurrentUser,
+  setAuthenticated,
   history,
   errors
 }) => {
@@ -25,7 +26,8 @@ const LoginPage = ({
       username,
       password
     };
-    setCurrentUser(user, true);
+    setCurrentUser(user);
+    setAuthenticated(true);
     history.push('/listings');
   };
 
@@ -73,7 +75,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: (user, bool) => dispatch(setCurrentUser(user, bool)),
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  setAuthenticated: bool => dispatch(setAuthenticated(bool))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));

@@ -3,13 +3,19 @@ import { Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Appbar from '@material-ui/core/Appbar';
-import { setCurrentUser } from '../../redux/actions';
+import { setCurrentUser, setAuthenticated } from '../../redux/actions';
 
 import './Nav.css';
 
 class Nav extends PureComponent {
+  handleLogout = () => {
+    const { setCurrentUser, setAuthenticated } = this.props;
+    setCurrentUser({});
+    setAuthenticated(false);
+  }
+
   whatToShow = () => {
-    const { isAuthenticated, setCurrentUser } = this.props;
+    const { isAuthenticated } = this.props;
     if (isAuthenticated) {
       return (
         <div className="links">
@@ -20,7 +26,7 @@ class Nav extends PureComponent {
             Add
           </Link>
           <Link
-            onClick={ () => setCurrentUser({}, false) }
+            onClick={ this.handleLogout }
             className="text-white nav_link"
             to='/login'
           >
@@ -34,7 +40,10 @@ class Nav extends PureComponent {
           <Link className="text-white nav_link" to='/listings'>
             Listings
           </Link>
-          <Link className="text-white nav_link" to='/login'>
+          <Link
+            className="text-white nav_link"
+            to='/login'
+          >
             Login
           </Link>
           <Link className="text-white nav_link" to='/register'>
@@ -73,7 +82,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: (user, bool) => dispatch(setCurrentUser(user, bool)),
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  setAuthenticated: bool => dispatch(setAuthenticated(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);
