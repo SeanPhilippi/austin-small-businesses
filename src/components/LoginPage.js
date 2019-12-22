@@ -30,7 +30,12 @@ const LoginPage = ({
   };
 
   return (
-    <form className="d-flex flex-column w-50 mx-auto">
+    <form
+      noValidate
+      autoComplete="off"
+      className="d-flex flex-column w-50 mx-auto"
+      onSubmit={ e => handleLogin(e) }
+    >
       <TextField
         error={ errors.login.name }
         onChange={ handleChange }
@@ -55,7 +60,6 @@ const LoginPage = ({
       <Button
         type='submit'
         className="mt-2"
-        onClick={ e => handleLogin(e) }
         variant="contained"
       >
         Log In

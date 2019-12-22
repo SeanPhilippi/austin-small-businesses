@@ -11,9 +11,31 @@ const AddListing = () => {
     hours: "",
     description: ""
   });
+
+  const handleAdd = e => {
+    e.preventDefault();
+    const { name, address, hours, description } = values;
+    const newListing = {
+      name,
+      address,
+      hours,
+      description
+    }
+    // redux action for adding to listings in redux state
+
+    // post request to database
+
+    // function for showing a successful add message bar?
+  };
+
   return (
     <div className="add-listing-container">
-      <form noValidate autoComplete="off" className="listing-inputs">
+      <form
+        noValidate
+        autoComplete="off"
+        className="listing-inputs"
+        onSubmit={ e => handleAdd(e) }
+      >
         <TextField
           id="standard-basic"
           className=""
@@ -50,7 +72,13 @@ const AddListing = () => {
           value={ values.description }
           onChange={ handleChange }
         />
-        <Button type="submit" label="Add Listing" />
+        <Button
+          type="submit"
+          className="mt-4"
+          variant="contained"
+        >
+          Add New Listing
+        </Button>
       </form>
       <Map />
     </div>
