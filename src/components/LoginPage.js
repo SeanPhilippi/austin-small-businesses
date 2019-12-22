@@ -18,7 +18,9 @@ const LoginPage = ({
     username: '',
     password: ''
   });
-  const handleLogin = () => {
+
+  const handleLogin = e => {
+    e.preventDefault();
     const user = {
       username,
       password
@@ -28,7 +30,7 @@ const LoginPage = ({
   };
 
   return (
-    <div className="d-flex flex-column w-50 mx-auto">
+    <form className="d-flex flex-column w-50 mx-auto">
       <TextField
         error={ errors.login.name }
         onChange={ handleChange }
@@ -51,13 +53,14 @@ const LoginPage = ({
         helperText={ errors.login.password && "Incorrect entry." }
       />
       <Button
+        type='submit'
         className="mt-2"
-        onClick={ handleLogin }
+        onClick={ e => handleLogin(e) }
         variant="contained"
       >
         Log In
       </Button>
-    </div>
+    </form>
   );
 };
 
